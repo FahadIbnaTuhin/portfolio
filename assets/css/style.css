@@ -25,7 +25,7 @@ h1,h2,h3,h4,h5,h6 {
 a {
     text-decoration: none;
     color: var(--color-body);
-    transition: all 0.4 ease;
+    transition: all 0.4s ease;
 }
 
 a:hover {
@@ -36,19 +36,14 @@ img {
     width: 100%;
 }
 
-.text-brand {
-    color: var(--color-brand)
-}
-
 .bg-base {
     background-color: var(--color-base);
 }
 
-.full_height {
+.full-height {
     min-height: 100vh;
     height: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: center;
     padding-top: 80px;
@@ -71,8 +66,12 @@ img {
     align-items: center;
     justify-content: center;
     font-size: 32px;
-    background-color: var(--color-brand);
     color: var(--color-base);
+    background-color: var(--color-brand);
+}
+
+.text-brand {
+    color: var(--color-brand);
 }
 
 /* NAVBAR */
@@ -94,15 +93,15 @@ img {
     color: var(--color-brand);
 }
 
-@media (min-width: 993px) {
+@media (min-width: 992px) {
     .navbar {
         min-height: 100vh;
         width: var(--sidbar-width);
-        background: linear-gradient(rgba(1, 72, 82, 0.8), rgba(1, 72, 82, 0.8)), url(../images/sidebar-img.jpg);
+        background: linear-gradient(rgba(1, 60, 68, 0.7), rgba(1, 60, 68, 0.7)), url(../images/sidebar-img.jpg);
         background-size: cover;
         background-position: center;
     }
-    
+
     .navbar-brand img {
         border: 8px solid var(--color-brand);
     }
@@ -111,9 +110,9 @@ img {
     #content-wrapper {
         padding-left: var(--sidbar-width);
     }
-
 }
 
+/* BTN */
 .btn {
     padding: 12px 28px;
     font-weight: 700;
@@ -122,13 +121,14 @@ img {
 .btn-brand {
     background-color: var(--color-brand);
     border-color: var(--color-brand);
+    color: var(--color-base);
 }
 
 .btn-brand:hover,
 .btn-brand:focus {
     background-color: var(--color-brand2);
+    border-color: var(--color-brand2);
     color: var(--color-base);
-    border: var(--color-brand2);
 }
 
 .link-custom {
@@ -136,17 +136,28 @@ img {
     position: relative;
 }
 
-#services {
-    height: 100vh;
+.link-custom::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background-color: var(--color-brand);
+    position: absolute;
+    left: 0;
+    top: 110%;
+    transition: all 0.4s;
 }
- 
+
+.link-custom:hover::after {
+    width: 100%;
+}
 
 /* CARD */
+/* The overflow property in CSS is used to control what happens if the content of an element is larger than the space designated for it */
 .card-custom .card-custom-image {
-    overflow: hidden;   
+    overflow: hidden;
 }
 
-.link-custom .card-custom-image img {
+.card-custom .card-custom-image img {
     transition: all 0.4s ease;
 }
 
@@ -154,14 +165,17 @@ img {
     transform: scale(1.1);
 }
 
+
 /* CONTACT */
 #contact .form-control {
     background-color: var(--color-base);
-    border-color: var(--color-base);
+    border-color: var(--font-base);
     color: var(--color-body);
+    border: none;
 }
 
 #contact .form-control:focus {
+    border: 1px solid;
     border-color: var(--color-brand);
     box-shadow: none;
 }
@@ -186,6 +200,6 @@ img {
     align-items: center;
     justify-content: center;
     background-color: var(--color-base);
-    border-radius: 100px;
+    border-radius: 100%;
     font-size: 24px;
 }
